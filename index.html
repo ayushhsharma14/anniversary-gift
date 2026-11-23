@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Prateeksha 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg1: #ffe3ec; --bg2: #ffc2d4; --text: #7a1f3d; --red: #e63950; --pink: #ff7aa2;
+  --card: rgba(255,255,255,.72); --paper: #fffaf5;
+  --script: "Dancing Script", "Segoe Script", cursive;
+  box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg1: #3a1020; --bg2: #5a1a33; --text: #ffd9e4; --card: rgba(255,255,255,.1); --paper: #2b0f1b; }
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; margin: 0; }
+body { background: linear-gradient(160deg, var(--bg1), var(--bg2)); color: var(--text); font-family: system-ui, sans-serif; overflow: hidden; }
+
+#hearts { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+#hearts span { position: absolute; bottom: -60px; animation: rise linear infinite; opacity: .8; }
+@keyframes rise { to { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
+
+.screen {
+  position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 20px calc(24px + env(safe-area-inset-bottom, 0px)); text-align: center;
+}
+#hero { opacity: 0; visibility: hidden; transition: opacity 1s ease; overflow-y: auto; justify-content: flex-start; padding-top: calc(48px + env(safe-area-inset-top, 0px)); }
+#hero.show { opacity: 1; visibility: visible; }
+
+/* opening screen */
+.for { font-family: var(--script); font-size: clamp(40px, 12vw, 64px); margin: 0 0 28px; color: var(--red); line-height: 1.1; }
+.env { position: relative; width: min(78vw, 320px); aspect-ratio: 4 / 3; margin: 30px 0 36px; }
+.env > div { position: absolute; }
+.env .back { inset: 0; background: #ff8fab; border-radius: 8px; z-index: 1; }
+.env .note { left: 7%; right: 7%; top: 8%; height: 82%; background: var(--paper); border-radius: 6px; z-index: 2; transition: transform .9s ease .5s; display: flex; align-items: center; justify-content: center; font-family: var(--script); font-size: 26px; color: var(--red); }
+.env .pocket { inset: 0; z-index: 3; background: #ff5c85; clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%); border-radius: 8px; }
+.env .flap { left: 0; right: 0; top: 0; height: 58%; z-index: 4; background: #ff7aa2; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: top; transition: transform .6s ease; }
+.env .seal { left: 50%; top: 46%; transform: translate(-50%, -50%); z-index: 5; font-size: 30px; transition: opacity .3s; }
+.env.open .flap { transform: rotateX(180deg); z-index: 1; }
+.env.open .seal { opacity: 0; }
+.env.open .note { transform: translateY(-48%); }
+
+button#openBtn {
+  font: 600 26px var(--script); color: #fff; background: var(--red); border: 0; border-radius: 999px;
+  padding: 12px 40px; box-shadow: 0 8px 20px rgba(230,57,80,.35); cursor: pointer; transition: transform .2s, opacity .3s;
+}
+button#openBtn:active { transform: scale(.95); }
+button#openBtn:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+.hint { margin-top: 14px; font-size: 13px; opacity: .7; }
+
+#fill { position: fixed; inset: 0; z-index: 5; background: var(--paper); clip-path: circle(0 at 50% 50%); pointer-events: none; transition: clip-path 1s ease, opacity .8s ease; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+#fill.grow { clip-path: circle(150% at 50% 50%); }
+#fill.gone { opacity: 0; }
+
+/* hero */
+.hero-title { font-family: var(--script); font-size: clamp(34px, 10vw, 54px); line-height: 1.2; margin: 0 0 12px; color: var(--red); }
+.since { font-size: 14px; opacity: .8; margin: 0 0 28px; }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: min(100%, 380px); }
+.unit { background: var(--card); border: 1px solid rgba(230,57,80,.2); border-radius: 18px; padding: 16px 8px; backdrop-filter: blur(6px); }
+.unit b { display: block; font-family: var(--script); font-size: 44px; color: var(--red); line-height: 1.1; font-weight: 700; }
+.unit span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: .8; }
+.tail { margin-top: 28px; font-family: var(--script); font-size: 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  #hearts span { animation: none; }
+  .env .note, .env .flap, #fill, #hero { transition-duration: .01s; transition-delay: 0s; }
+}
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+
+<section class="screen" id="intro">
+  <h1 class="for">For Prateeksha</h1>
+  <div class="env" id="env" aria-hidden="true">
+    <div class="back"></div>
+    <div class="note">♥</div>
+    <div class="pocket"></div>
+    <div class="flap"></div>
+    <div class="seal">💗</div>
+  </div>
+  <button id="openBtn">Open 💌</button>
+  <p class="hint">made just for you</p>
+</section>
+
+<div id="fill" aria-hidden="true">💗</div>
+
+<section class="screen" id="hero">
+  <h2 class="hero-title">HAPPY THREE MONTH ANNIVERSARY TO US PIKUUU💗</h2>
+  <p class="since">Together since 28 Aug 2026, 4:30 PM</p>
+  <div class="grid" id="grid"></div>
+  <p class="tail">and counting…</p>
+</section>
+
+<script>
+// ===== EDIT HERE =====
+var startTime = "2026-08-28T16:30:00+05:30";   // the moment you both said yes
+// =====================
+
+// floating hearts
+var heartBox = document.getElementById("hearts");
+var colors = ["#ff7aa2", "#ff4d6d", "#ffb3c6", "#e63950", "#ff8fab"];
+for (var i = 0; i < 26; i++) {
+  var h = document.createElement("span");
+  h.textContent = "♥";
+  h.style.left = Math.random() * 100 + "%";
+  h.style.fontSize = 14 + Math.random() * 30 + "px";
+  h.style.color = colors[Math.floor(Math.random() * colors.length)];
+  h.style.animationDuration = 8 + Math.random() * 10 + "s";
+  h.style.animationDelay = -Math.random() * 14 + "s";
+  heartBox.appendChild(h);
+}
+
+// letter opening
+var env = document.getElementById("env");
+var fill = document.getElementById("fill");
+var intro = document.getElementById("intro");
+var hero = document.getElementById("hero");
+var clicked = false;
+
+document.getElementById("openBtn").addEventListener("click", function () {
+  if (clicked) return;
+  clicked = true;
+  this.style.opacity = "0";
+  env.classList.add("open");
+  setTimeout(function () { fill.classList.add("grow"); }, 1500);
+  setTimeout(function () {
+    intro.style.display = "none";
+    hero.classList.add("show");
+    fill.classList.add("gone");
+  }, 2600);
+});
+
+// live counter (uses IST so it is the same for everyone)
+var names = ["Months", "Weeks", "Days", "Hours", "Minutes", "Seconds"];
+var grid = document.getElementById("grid");
+var nums = [];
+for (var j = 0; j < names.length; j++) {
+  var box = document.createElement("div");
+  box.className = "unit";
+  var n = document.createElement("b");
+  n.textContent = "0";
+  var l = document.createElement("span");
+  l.textContent = names[j];
+  box.appendChild(n);
+  box.appendChild(l);
+  grid.appendChild(box);
+  nums.push(n);
+}
+
+var IST = 19800000;
+var start = new Date(new Date(startTime).getTime() + IST);
+
+function tick() {
+  var now = new Date(Date.now() + IST);
+  var months = (now.getUTCFullYear() - start.getUTCFullYear()) * 12 + (now.getUTCMonth() - start.getUTCMonth());
+  function anchor(m) {
+    return Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + m, start.getUTCDate(),
+      start.getUTCHours(), start.getUTCMinutes(), start.getUTCSeconds());
+  }
+  if (anchor(months) > now.getTime()) months--;
+  if (months < 0) months = 0;
+  var rest = Math.max(0, now.getTime() - anchor(months));
+  var day = 86400000;
+  var weeks = Math.floor(rest / (7 * day)); rest -= weeks * 7 * day;
+  var days = Math.floor(rest / day); rest -= days * day;
+  var hours = Math.floor(rest / 3600000); rest -= hours * 3600000;
+  var mins = Math.floor(rest / 60000); rest -= mins * 60000;
+  var secs = Math.floor(rest / 1000);
+  var vals = [months, weeks, days, hours, mins, secs];
+  for (var k = 0; k < vals.length; k++) nums[k].textContent = vals[k];
+}
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
